@@ -1,0 +1,31 @@
+/* src/styles/globals.css (v4 approach) */
+@import "tailwindcss";
+
+/* Optional customizations (still supported) */
+@layer base {
+  html { scroll-behavior: smooth; }
+}
+@layer components {
+  .card { @apply rounded-xl border bg-white shadow-sm; }
+}
+@layer utilities {
+  .scrollbar-thin { scrollbar-width: thin; }
+  /* Smooth animated gradient background (fullscreen-friendly) */
+.bg-animated {
+  background: linear-gradient(300deg, #dbeafe, #f0abfc, #93c5fd);
+  background-size: 180% 180%;
+  animation: gradient-slide 18s ease infinite;
+}
+
+@keyframes gradient-slide {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-animated { animation: none !important; }
+}
+
+}
